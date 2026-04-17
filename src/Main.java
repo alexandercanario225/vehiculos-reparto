@@ -136,7 +136,7 @@ public class Main {
         // Agregar lógica para marcar el vehículo como no disponible
     }
 
-    public void mostrarReporteGeneral() {
+    public static void mostrarReporteGeneral() {
         int totalCamiones = 0, totalFurgones = 0, totalMotos = 0;
         int totalDisponibles = 0, totalNoDisponibles = 0;
 
@@ -186,7 +186,7 @@ public class Main {
             else {
                 tipo = "Moto";
             }
-
+            // Cambiar a v.mostrarDetalle()
             System.out.printf("%-12s %-12s %-15s %-15s %-10s%n",
                     v.getPatente(),
                     tipo,

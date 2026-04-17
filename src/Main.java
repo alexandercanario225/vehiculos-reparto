@@ -62,10 +62,11 @@ public class Main {
         String marca = leerStringNoVacio("Marca: ");
         String modelo = leerStringNoVacio("Modelo: ");
         double capacidad = leerDouble("Capacidad de carga (kg): ");
+        boolean disponible = true;
         double volumen = leerDouble("Volumen interior (m³): ");
 
         try {
-            Furgon furgon = new Furgon(patente, marca, modelo, capacidad, volumen);
+            Furgon furgon = new Furgon(patente, marca, modelo, capacidad, disponible, volumen);
             vehiculos.add(furgon);
             System.out.println(" Furgón registrado con éxito.");
         } catch (IllegalArgumentException e) {

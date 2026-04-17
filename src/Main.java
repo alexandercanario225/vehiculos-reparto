@@ -1,8 +1,3 @@
-import Vehiculo;
-import Camion;
-import Furgon;
-import MotoReparto;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,61 +9,23 @@ public class Main {
     public static void main(String[] args) {
 
         int opcion;
-        llenarDatos();
 
         do {
             mostrarMenu();
+
             opcion = scanner.nextInt();
             scanner.nextLine();
 
             switch (opcion) {
-
-                //Registrar camion
-                case 1 -> {
-                    registrarCamion();
-                }
-
-
-                //Registrar furgon
-                case 2 -> {
-                    registrarFurgon();
-                }
-
-
-                //Registrar moto
-                case 3 -> {
-                    registrarMotoReparto();
-                }
-
-
-                //Mostrar todos los vehiculos
-                case 4 -> {
-                    mostrarTodosLosVehiculos();
-                }
-
-
-                //Mostrar vehiculos disponibles
-                case 5 -> {
-                    mostrarVehiculosDisponibles();
-                }
-
-
-                //Mostrar vehiculos no disponibles
-                case 6 -> {
-                    marcarVehiculoNoDisponible();
-                }
-
-                //Mostrar reporte general
-                case 7 -> {
-                    mostrarReporteGeneral();
-                }
-
-                //salir
-                case 8 -> {
-                    salir();
-                }
+                case 1 -> registrarCamion();
+                case 2 -> registrarFurgon();
+                case 3 -> registrarMotoReparto();
+                case 4 -> mostrarTodosLosVehiculos();
+                case 5 -> mostrarVehiculosDisponibles();
+                case 6 -> marcarVehiculoNoDisponible();
+                case 7 -> mostrarReporteGeneral();
+                case 8 -> salir();
                 default -> System.out.println("Opción inválida. Elige entre 1 y 8.");
-
             }
         } while (opcion != 8);
 
@@ -285,6 +242,4 @@ public class Main {
             System.out.println(" Error: " + e.getMessage());
         }
     }
-
-    // NOTA: El main y el menú serán agregados por el compañero encargado.
 }

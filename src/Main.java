@@ -96,7 +96,30 @@ public class Main {
     public static void registrarCamion() {
 
     }
- 
+    public static void mostrarVehiculosDisponibles()
+        System.out.println("=== LISTA DE VEHICULOS DISPONIBLES ===\n");
+
+        List<Vehiculo> disponibles = new ArrayList<>();
+        for (Vehiculo vehiculo : vehiculos) {
+            if (vehiculo.isDisponible()) {
+                disponibles.add(vehiculo);
+            }
+        }
+
+        if (disponibles.isEmpty()) {
+            System.out.println(" No hay vehiculos disponibles.");
+            System.out.println("\nPresione Enter para volver al menú...");
+            scanner.nextLine();
+            return;
+        }
+
+        for (int i = 0; i < disponibles.size(); i++) {
+            System.out.println((i + 1) + ". " + disponibles.get(i).getPatente());
+        }
+        System.out.println("\nPresione Enter para volver al menú...");
+        scanner.nextLine();
+        return;
+    }
     public static void marcarVehiculo(){
 
         System.out.println("=== MARCAR VEHICULO COMO NO DISPONIBLE ===\n");

@@ -52,6 +52,20 @@ public class Main {
     }
 
     public static void registrarCamion() {
+        System.out.println("\n--- Registro de Camión ---");
+
+        String patente = leerPatenteUnica();
+        String marca = leerStringNoVacio("Marca: ");
+        String modelo = leerStringNoVacio("Modelo: ");
+        int numEjes = leerEntero("Número de ejes: ");
+            try {
+                Camion camion = new Camion(patente, marca, modelo, numEjes);
+
+             vehiculos.add(camion);
+
+            System.out.println("✔ Camión registrado con éxito.");
+          } catch (IllegalArgumentException e) {
+            System.out.println("❌ Error al registrar: " + e.getMessage());
         // Julio
     }
 
@@ -75,7 +89,25 @@ public class Main {
     }
 
     public static void registrarMotoReparto() {
-        // Diego
+        System.out.println("\n--- Registro de Moto de Reparto ---");
+
+        String patente = leerPatenteUnica();
+        String marca = leerStringNoVacio("Marca: ");
+        String modelo = leerStringNoVacio("Modelo: ");
+        double capacidad = leerDouble("Capacidad de carga (kg): ");
+        boolean disponible = true;
+
+        System.out.print("¿Tiene caja térmica? si/no: ");
+        String respuesta = scanner.nextLine().trim().toLowerCase();
+        boolean tieneCajaTermica = respuesta.equals("si");
+
+        try {
+            MotoReparto moto = new MotoReparto(patente, marca, modelo, capacidad, disponible, tieneCajaTermica);
+            vehiculos.add(moto);
+            System.out.println("Moto de reparto registrada con éxito.");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     public static void mostrarTodosLosVehiculos() {
@@ -134,7 +166,13 @@ public class Main {
             return;
         }
 
-        // Agregar lógica para marcar el vehículo como no disponible
+        //obtener vehiculo y se le resta 1 porque los arrays empiezan en 0
+        Vehiculo vehiculoSeleccionado = disponibles.get(seleccion - 1);
+        vehiculoSeleccionado.setDisponible(false);
+
+        System.out.println("\nEl vehículo con patente " + vehiculoSeleccionado.getPatente() + " ha sido marcado como NO disponible.");
+        System.out.println("\nPresione Enter para volver al menú...");
+        scanner.nextLine();
     }
 
     public static void mostrarReporteGeneral() {
